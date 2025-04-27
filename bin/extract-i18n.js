@@ -29,13 +29,29 @@ function extractTemplateVariables(templateContent) {
   const variables = new Set();
 
   function traverse(node) {
+    // {{ hello }}
     if (node.type === 5) {
-      // Interpolation ({{ hello }})
+      // Interpolation
       const content = node.content.content.trim();
       if (content) {
         variables.add(content);
       }
     }
+
+    // <input :value="username" />
+    if (node.type === 1 && node.props) {
+      // ELEMENT
+      node.props.forEach((prop) => {
+        if (prop.type === 7 && prop.exp) {
+          // DIRECTIVE (ex: v-bind / :)
+          const content = prop.exp.content.trim();
+          if (content) {
+            variables.add(content);
+          }
+        }
+      });
+    }
+
     if (node.children) {
       node.children.forEach(traverse);
     }
