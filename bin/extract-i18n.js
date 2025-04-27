@@ -4,7 +4,7 @@ const { parse } = require("@vue/compiler-sfc");
 const { baseParse } = require("@vue/compiler-dom");
 const fs = require("fs");
 const path = require("path");
-const chalk = require("chalk");
+const chalk = require("chalk").default;
 const { program } = require("commander");
 
 program
