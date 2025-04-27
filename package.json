@@ -1,0 +1,30 @@
+{
+  "name": "vue-extract-i18n",
+  "version": "1.0.0",
+  "description": "Vue 파일에서 i18n 변수를 추출하는 CLI 툴",
+  "bin": {
+    "vue-extract-i18n": "./bin/extract-i18n.js"
+  },
+  "main": "src/extractor.js",
+  "scripts": {
+    "start": "node bin/extract-i18n.js"
+  },
+  "dependencies": {
+    "@vue/compiler-dom": "^3.4.0",
+    "@vue/compiler-sfc": "^3.4.0",
+    "chalk": "^5.0.1",
+    "commander": "^11.0.0",
+    "vue-extract-i18n": "file:"
+  },
+  "keywords": [
+    "vue",
+    "i18n",
+    "cli",
+    "localization",
+    "internationalization",
+    "vue-i18n",
+    "vue-cli"
+  ],
+  "author": "방아현",
+  "license": "MIT"
+}
